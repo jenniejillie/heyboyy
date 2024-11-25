@@ -3,24 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plastic Waste Facts</title>
+    <title>Plastic Waste Facts from frienECO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FCF4E5;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+        }
+        .fact-container {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .fact {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        .refresh-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .refresh-button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Important Facts about Plastic Waste</h1>
-    </header>
-    <section>
-        <h2>Did You Know?</h2>
-        <ul>
-            <li>Over 8 million tons of plastic waste end up in our oceans every year.</li>
-            <li>Plastic takes up to 1,000 years to decompose in landfills.</li>
-            <li>Less than 10% of plastic used globally is recycled.</li>
-            <li>Plastic pollution is harming wildlife, with animals ingesting or becoming entangled in plastic waste.</li>
-            <li>Every minute, one garbage truck of plastic is dumped into our oceans.</li>
-        </ul>
-    </section>
-    <footer>
-        <p>Learn more about reducing plastic waste at <a href="https://www.worldwildlife.org/threats/plastic-pollution">WWF</a>.</p>
-    </footer>
-</body>
-</html>
+
+    <h1>Plastic Waste Facts from frienECO</h1>
+
+    <div class="fact-container">
+        <div class="fact" id="fact"></div>
+    </div>
+
+    <button class="refresh-button" onclick="newFact()">Get New Fact</button>
+
+    <script>
+        const facts = [
+            "Over 8 million tons of plastic enter the oceans every year.",
+            "91% of plastic waste is not recycled worldwide.",
+            "A single plastic bottle can take 450 years to decompose.",
+            "Every minute, one garbage truck of plastic is dumped into our oceans.",
+            "Plastic waste kills approximately 1 million seabirds and 100,000 marine mammals annually.",
+            "Only about 9% of plastic is ever recycled, with the rest ending up in landfills or the environment.",
+            "The production of plastic generates 3.8 billion metric tons of carbon dioxide each year.",
+            "Plastic pollution is expected to triple by 2040 if current trends continue.",
+            "Over 300 million tons of plastic are produced each year globally.",
+            "Less than 1% of plastic is recycled into products of equal or higher quality.",
+            "By 2050, there will be more plastic in the ocean than fish by weight.",
+            "500 billion plastic straws are used worldwide each year.",
+            "Plastic bags are used for an average of just 12 minutes, but they last in the environment for centuries.",
+            "Plastic waste is responsible for killing marine life when animals ingest or get tangled in it.",
+            "About 10% of the plastic waste produced each year ends up in the ocean.",
+            "Humans consume an estimated 5 grams of plastic every week, equivalent to a credit card.",
+            "1 million plastic bottles are purchased every minute across the globe.",
+            "It’s estimated that 9 out of 10 seabirds have ingested plastic.",
+            "The majority of plastic waste comes from packaging materials.",
+            "A single-use plastic item can take up to 1,000 years to break down.",
+            "The Great Pacific Garbage Patch is twice the size of Texas and is made up mostly of plastic.",
+            "Plastic microbeads used in cosmetics and personal care products are a significant contributor to ocean pollution.",
+            "Only 12% of plastic is incinerated, contributing to air pollution.",
+            "About 80% of marine debris comes from land-based sources.",
+            "95% of seabirds have plastic in their stomachs.",
+            "Over 90% of plastics are made from fossil fuels.",
+            "Most plastic waste is non-biodegradable and takes hundreds of years to break down.",
+            "Ocean plastics are responsible for harming over 700 marine species.",
+            "Plastic pollution causes more than $13 billion in damage to marine ecosystems every year.",
+            "Plastic bags are one of the most common pollutants in coastal areas and the ocean.",
+            "Every year, plastic waste kills over 100,000 marine mammals.",
+            "Plastic particles, known as microplastics, have been found in the air, water, and food.",
+            "Each year, around 500 billion plastic bags are used around the world.",
+            "The use of disposable plastic packaging in food and drinks is growing rapidly.",
+            "Over 25 trillion pieces of plastic are floating in the oceans.",
+            "Microplastics are small plastic particles less than 5mm in size and are a major concern for wildlife.",
+            "In 2016, only 9% of plastic waste was recycled in the US.",
+            "An estimated 1 million plastic bottles are bought around the world every minute.",
+            "Over 8 million plastic bottles are thrown away every day in the US alone.",
+            "70% of plastic packaging is not recycled and ends up in landfills.",
+            "1 in 3 fish in the sea has ingested plastic.",
+            "Plastic pollution in the ocean harms biodiversity and disrupts marine ecosystems.",
+            "Around 700 species of marine animals have been found to ingest or get caught in plastic waste.",
+            "An estimated 300 million tons of plastic waste are generated annually worldwide.",
+            "Plastic is one of the most common materials found in beach cleanups.",
+            "Nearly half of the plastic waste produced globally comes from packaging.",
+            "The plastics industry emits a significant amount of carbon dioxide, contributing to climate change.",
+            "10 million plastic straws are used in the U.S. every day.",
+            "Plastic pollution is a major threat to coral reefs, which provide a habitat for many species.",
+            "More than 1 million animals die each year due to plastic pollution.",
+            "Plastic pollution affects every part of the planet, from the Arctic to the Antarctic.",
+            "Over 60% of all plastic waste is generated by just 10 countries.",
+            "In 2018, nearly 300 million tons of plastic were produced worldwide.",
+            "The world produces 100 times more plastic than it did in 1950.",
+            "Plastic waste in landfills emits toxic chemicals into the air and groundwater.",
+            "Plastic in the ocean can be ingested by small marine organisms and work its way up the food chain.",
+            "The average American produces around 80 pounds of plastic waste per year.",
+            "Around 90% of plastic waste in the ocean comes from land-based sources, such as rivers and streams.",
+            "Plastic packaging accounts for over 40% of plastic production globally.",
+            "Recycling rates for plastics are still low compared to other materials like paper and glass.",
+            "It takes around 500 years for plastic bottles to decompose in the environment.",
+            "The world’s oceans are predicted to contain more plastic than fish by weight by 2050.",
+            "Plastic waste is often mistaken for food by marine animals, leading to death or injury.",
+            "The carbon footprint of producing plastic is 6 times greater than that of paper.",
+            "Less than 5% of plastic packaging is reused or recycled.",
+            "Plastic waste causes soil pollution, affecting agriculture and plant life.",
+            "Plastic pollution has been found in freshwater lakes and rivers as well as oceans.",
+            "Around 12 million tons of plastic are dumped into the ocean every year.",
+            "Plastics in the ocean break down into microplastics, which enter the food chain.",
+            "The accumulation of plastic waste is not just an environmental issue but also a public health concern.",
+            "It’s estimated that more than 90% of plastic packaging is not recyclable.",
+            "More than 200 species of marine animals have been affected by plastic waste.",
+            "Discarded plastic fishing nets are a significant source of marine debris.",
+            "79% of plastic waste is found in landfills, incinerators, or the natural environment.",
+            "A plastic bottle can take up to 1,000 years to decompose.",
+            "It’s estimated that 40% of the plastic waste in the ocean is from discarded fishing gear.",
+            "About 50% of plastic produced is used for single-use products, such as straws and packaging.",
+            "Plastic pollution is a global issue that impacts communities, ecosystems, and economies.",
+            "A significant amount of plastic waste comes from products designed for convenience.",
+            "Over 60% of plastic waste generated in the US is from packaging.",
+            "More than 8 billion metric tons of plastic waste have been produced since the 1950s.",
+            "The amount of plastic produced globally has increased by 20 times over the last 50 years.",
+            "Plastic waste is a major contributor to the degradation of natural habitats and biodiversity.",
+            "The production of plastic is responsible for approximately 8% of global oil consumption.",
+            "Every piece of plastic ever produced still exists in some form in the environment.",
+            "Around 30% of plastic waste in the ocean is carried from land-based sources through rivers.",
+            "Each year, over 8 million tons of plastic end up in the oceans, threatening marine life.",
+            "Plastic pollution is a visible problem in many urban areas and coastal regions.",
+            "The production of plastic has far outpaced the capacity to recycle it.",
+            "The plastic pollution crisis is growing rapidly due to the increased use of single-use plastics.",
+            "The shift towards a circular economy could help reduce plastic waste and its
