@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Jokes</title>
+    <title>Plastic Waste Facts</title>
 </head>
 <body>
-    <h1>Here’s your daily dose of laughter!</h1>
-    <p id="joke">Loading...</p>
-
-    <script>
-        async function getJoke() {
-            const response = await fetch('https://official-joke-api.appspot.com/random_joke');
-            const joke = await response.json();
-            document.getElementById('joke').textContent = `${joke.setup} - ${joke.punchline}`;
-        }
-        getJoke();
-    </script>
+    <header>
+        <h1>Important Facts about Plastic Waste</h1>
+    </header>
+    <section>
+        <h2>Did You Know?</h2>
+        <ul>
+            <li>Over 8 million tons of plastic waste end up in our oceans every year.</li>
+            <li>Plastic takes up to 1,000 years to decompose in landfills.</li>
+            <li>Less than 10% of plastic used globally is recycled.</li>
+            <li>Plastic pollution is harming wildlife, with animals ingesting or becoming entangled in plastic waste.</li>
+            <li>Every minute, one garbage truck of plastic is dumped into our oceans.</li>
+        </ul>
+    </section>
+    <footer>
+        <p>Learn more about reducing plastic waste at <a href="https://www.worldwildlife.org/threats/plastic-pollution">WWF</a>.</p>
+    </footer>
 </body>
 </html>
