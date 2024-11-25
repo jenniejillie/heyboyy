@@ -146,4 +146,19 @@
             "Plastic pollution is a visible problem in many urban areas and coastal regions.",
             "The production of plastic has far outpaced the capacity to recycle it.",
             "The plastic pollution crisis is growing rapidly due to the increased use of single-use plastics.",
-            "The shift towards a circular economy could help reduce plastic waste and its
+            "The shift towards a circular economy could help reduce plastic waste and its harmful environmental effects."
+        ];
+
+        // Function to display a new fact
+        function newFact() {
+            const randomFact = facts[Math.floor(Math.random() * facts.length)];
+            document.getElementById("fact").textContent = randomFact;
+        }
+
+        // Initial fact on page load
+        newFact();
+    </script>
+
+</body>
+</html>
+
